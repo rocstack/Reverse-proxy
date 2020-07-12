@@ -18,3 +18,4 @@ services:
 
 networks:
   system-network:
+    name: system-network
