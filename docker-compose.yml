@@ -16,6 +16,15 @@ services:
     networks:
     - system-network
 
+  app:
+    build: ./basic-node-app
+    container_name: node_app
+    ports:
+      - 3000:3000
+    networks:
+      - system-network
+
+
 networks:
   system-network:
     name: system-network
