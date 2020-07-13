@@ -7,23 +7,30 @@ services:
     container_name: nginx
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      # - ./nginx/error.log:/etc/nginx/error_log.log
-      # - ./nginx/cache/:/etc/nginx/cache
-      # - /etc/letsencrypt/:/etc/letsencrypt/
+      - ./nginx/error.log:/etc/nginx/error_log.log
+      - ./nginx/cache/:/etc/nginx/cache
+      - /etc/letsencrypt/:/etc/letsencrypt/
     ports:
       - 80:80
       - 443:443
     networks:
     - system-network
 
-  app:
-    build: ./basic-node-app
-    container_name: node_app
+  # rocstack:
+  #   build: ./rocstack
+  #   container_name: rocstack
+  #   ports:
+  #     - 2001:2001
+  #   networks:
+  #     - system-network
+
+  imbrad:
+    build: ./imbrad
+    container_name: imbrad
     ports:
-      - 3000:3000
+      - 8081:8080
     networks:
       - system-network
-
 
 networks:
   system-network:
