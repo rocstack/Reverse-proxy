@@ -25,7 +25,7 @@ services:
   #     - system-network
 
   imbrad:
-    build: ./imbrad
+    build: ./ImBrad
     container_name: imbrad
     ports:
       - 8081:8080
